@@ -1,0 +1,85 @@
+<div class="account-page">
+
+  <!-- PROFILE CONTENT ONLY -->
+
+  <div class="profile-header">
+    <h2>Personal Details</h2>
+    <button class="edit-btn" (click)="editProfile()">EDIT</button>
+  </div>
+
+  @if (!isEditMode && userService.userProfile() && defaultAddress()) {
+  <div class="profile-view">
+
+    <div class="profile-left">
+      <h3>{{ userService.userProfile()?.firstName }} {{ userService.userProfile()?.lastName }}</h3>
+      <p>
+        <mat-icon>mail</mat-icon>
+        {{ userService.userProfile()?.email }}
+      </p>
+      <p>
+        <mat-icon>phone</mat-icon>
+        {{ userService.userProfile()?.phoneNumber }}
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="profile-right">
+      <h4><b>Primary delivery address</b></h4>
+      <p><strong>{{ defaultAddress()?.address }}</strong></p>
+      <p><strong>{{ defaultAddress()?.street }}, {{ defaultAddress()?.city }} - {{ defaultAddress()?.pinCode}}</strong>
+      </p>
+      <p><strong>{{ defaultAddress()?.state }}</strong></p>
+    </div>
+
+  </div>
+  }
+
+  @if (isEditMode) {
+  <form [formGroup]="profileForm" class="edit-form">
+    ...
+  </form>
+  }
+
+  <!-- EDIT MODE -->
+  @if (isEditMode) {
+  <form [formGroup]="profileForm" class="edit-form">
+
+    <div class="form-field">
+      <label>First Name: </label>
+      <input type="text" formControlName="FirstName">
+      <mat-icon>edit</mat-icon>
+    </div>
+
+    <div class="form-field">
+      <label>Last Name: </label>
+      <input type="text" formControlName="Surname">
+      <mat-icon>edit</mat-icon>
+    </div>
+
+    <div class="form-field">
+      <label>Mobile Number: </label>
+      <input type="text" formControlName="Mobile">
+      <mat-icon>edit</mat-icon>
+    </div>
+
+    <div class="form-field">
+      <label>Email: </label>
+      <input type="email" formControlName="Email">
+      <mat-icon>edit</mat-icon>
+    </div>
+
+    <div class="checkbox">
+      <input type="checkbox">
+      <span>Send me mails on promotions, offers and services</span>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="cancel-btn" (click)="cancelEdit()">Cancel</button>
+      <button type="submit" class="save-btn">Save</button>
+    </div>
+
+  </form>
+  }
+
+</div>

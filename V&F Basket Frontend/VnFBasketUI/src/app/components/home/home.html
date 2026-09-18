@@ -1,0 +1,25 @@
+<div class="home-container">
+  <div class="section-header">
+    <h2>Fresh Vegetables & Fruits</h2>
+    <p>Get your daily needs delivered fresh to your doorstep</p>
+  </div>
+
+  @if(products().length === 0) {
+    <div class="no-products">
+      <div class="loader"></div>
+    </div>
+  } @else { 
+
+  <div class="products-grid">
+
+    @for(items of products(); track items.productId){
+      <app-product-card 
+        [product]="items"
+        (productDeleted)="onProductDeleted($event)"
+      ></app-product-card>
+    }
+  </div>
+}
+</div>
+
+

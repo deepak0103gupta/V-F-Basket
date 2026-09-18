@@ -1,0 +1,30 @@
+<div class="product-card">
+  <div class="product-image-container">
+    <img [src]="product.productImageUrl" [alt]="product.productName" class="product-image" />
+
+    @if(role === 'ADMIN'){
+    <div class="action-icons">
+      <i class="fa-solid fa-pen edit-icon" (click)="editProduct($event)"></i>
+      <i class="fa-solid fa-trash delete-icon" (click)="deleteProduct($event)"></i>
+    </div>
+    }
+  </div>
+
+  <div class="product-details">
+    <div class="name">
+      <p class="product-productName">{{ product.productName }}</p>
+
+      <P class="product-stockQuantity">Qty - {{ product.stockQuantity }}</P>
+    </div>
+
+    <div>
+      <p class="product-description">{{ product.productDescription }}</p>
+    </div>
+
+    <div class="product-pricing">
+      <span class="current-price">₹{{ product.productPrice }}</span>
+    </div>
+
+    <button class="add-to-cart-btn" (click)="addToCart()">Add to Cart</button>
+  </div>
+</div>

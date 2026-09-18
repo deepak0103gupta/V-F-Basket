@@ -1,0 +1,125 @@
+/* ================= PROFILE HEADER ================= */
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.profile-header h2 {
+  font-size: 22px;
+  font-weight: 500;
+  color: #444;
+}
+
+.edit-btn {
+  padding: 6px 18px;
+  font-size: 13px;
+  border: 1px solid #ccc;
+  background: #f2f2f2;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background: #e6e6e6;
+}
+
+/* ================= VIEW MODE ================= */
+.profile-view {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.profile-left h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.profile-left p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+}
+
+.divider {
+  width: 1px;
+  background: #ddd;
+  height: 100px;
+}
+
+.profile-right h4 {
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.profile-right p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+/* ================= EDIT FORM ================= */
+.edit-form {
+  max-width: 600px;
+}
+
+.form-field {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 12px 15px;
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-field label {
+  font-size: 13px;
+  color: #777;
+}
+
+.form-field input {
+  border: none;
+  outline: none;
+  font-size: 15px;
+  width: 100%;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.form-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.cancel-btn {
+  padding: 8px 20px;
+  border: 1px solid #ccc;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+
+.save-btn {
+  padding: 8px 20px;
+  border: none;
+  background: #1f1f1f;
+  color: white;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background: #000;
+}

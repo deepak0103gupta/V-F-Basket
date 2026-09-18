@@ -1,0 +1,53 @@
+<div class="account-page">
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <mat-icon>home</mat-icon>
+        <span class="crumb" routerLink="/">Home</span>
+        <span class="separator">/</span>
+        <span class="crumb" routerLink="/profile">My Account</span>
+        <span class="separator">/</span>
+        <span class="active">Self Service</span>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="layout">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+
+            <div class="menu-item" routerLink="profile" routerLinkActive="active">
+                <mat-icon>person</mat-icon>
+                <span>Profile</span>
+            </div>
+
+            <div class="menu-item" routerLink="orders" routerLinkActive="active">
+                <mat-icon>receipt_long</mat-icon>
+                <span>My Orders</span>
+            </div>
+
+            <div class="menu-item" routerLink="addresses" routerLinkActive="active">
+                <mat-icon>location_on</mat-icon>
+                <span>Addresses</span>
+            </div>
+
+            <div class="menu-item">
+                <mat-icon>credit_card</mat-icon>
+                <span>Saved Payments</span>
+            </div>
+
+            <div class="menu-item">
+                <mat-icon>account_balance_wallet</mat-icon>
+                <span>VnFWallet</span>
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE CONTENT -->
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+
+    </div>
+
+</div>

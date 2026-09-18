@@ -1,0 +1,75 @@
+<nav class="navbar">
+  <!-- Logo -->
+  <div class="logo" routerLink="/"><span class="vf">V&F</span> Basket</div>
+
+  <!-- Search Bar -->
+  <div class="search-box">
+    <input type="text" placeholder="Search for Products..." [(ngModel)]="searchText" (keyup.enter)="searchProduct()" />
+  </div>
+
+  <!-- Login & Cart -->
+  @if (!isLoggedIn) {
+    <div class="auth-section">
+      <button routerLink="/login" class="login-btn">Login / Sign Up</button>
+      <div class="icon cart" routerLink="/login" title="Shopping Cart">
+        <span class="material-icons">shopping_basket</span>
+      </div>
+    </div>
+  } @else {
+  <div class="icons">
+
+    <!-- Account Icon -->
+    <div class="account-wrapper">
+      <div class="icon profile" (click)="toggleAccountMenu($event)">
+        <span class="material-icons">person</span>
+      </div>
+
+      <!-- Account Dropdown -->
+      @if (isAccountOpen) {
+        <div class="account-dropdown">
+          <ul>
+            <li routerLink="/account">My Account</li>
+            <li routerLink="/orders">My Orders</li>
+            <li routerLink="/cart">
+              My Basket
+              <span class="badge red">0</span>
+            </li>
+            <li>Saved Payment Methods
+              <span class="badge green">₹0</span>
+            </li>
+            <li routerLink="/contact">Contact Us</li>
+            <li class="logout-item" (click)="logout()">Logout</li>
+          </ul>
+        </div>
+      }
+    </div>
+
+    <!-- Cart Icon -->
+    <div class="icon cart" routerLink="/cart" title="Shopping Cart">
+      <span class="material-icons">shopping_basket</span>
+    </div>
+
+  </div>
+}
+</nav>
+
+<!-- Category Row -->
+<div class="category-bar">
+  <!-- Shop By Category Dropdown -->
+  <div class="dropdown">
+    <button class="dropbtn">Shop by Category ▾</button>
+    <div class="dropdown-content">
+      <a routerLink="/category/Fruit">Fruits</a>
+      <a routerLink="/category/Vegetable">Vegetables</a>
+    </div>
+  </div>
+
+  <!-- Quick Links -->
+  <div class="quick-links">
+    <a routerLink="/category/Fruit">Exotic Fruits</a>
+    <a routerLink="/category/Vegetable">Fresh Vegetables</a>
+    @if(role === 'ADMIN'){
+      <a routerLink="/add-product">Add Product</a>
+    }
+  </div>
+</div>

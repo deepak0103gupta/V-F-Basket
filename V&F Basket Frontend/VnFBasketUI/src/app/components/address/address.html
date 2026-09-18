@@ -1,0 +1,52 @@
+<div class="address-container">
+
+    <h2 class="page-title">Addresses</h2>
+
+    <div class="address-grid">
+
+        <!-- Add New Address Card -->
+        <div class="add-card">
+            <mat-icon>location_on</mat-icon>
+            <p>+ Add New Address</p>
+        </div>
+
+        <!-- Address Cards -->
+        @for (address of getAllAddress(); track address.addressId) {
+
+        <div class="address-card">
+
+            <!-- Header -->
+            <div class="card-header">
+                <h3>Home</h3>
+                <span *ngIf="address.isDefault" class="default-badge">
+                    DEFAULT
+                </span>
+            </div>
+
+            <!-- Body -->
+            <div class="card-body">
+                <p>{{ userService.userProfile()?.firstName }} {{userService.userProfile()?.lastName}}</p>
+                <p>{{ address.address }}</p>
+                <p>{{ address.street }}, {{ address.city }}</p>
+                <p>Pincode: {{ address.pinCode }}</p>
+                <p>Ph: {{ userService.userProfile()?.phoneNumber }}</p>
+            </div>
+
+            <!-- Actions -->
+            <div class="card-actions">
+                <button (click)="deleteAddress(address.addressId)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+
+                <button>
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </div>
+
+        </div>
+
+        }
+
+    </div>
+
+</div>

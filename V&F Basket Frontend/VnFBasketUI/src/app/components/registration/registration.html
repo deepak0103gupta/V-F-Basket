@@ -1,0 +1,122 @@
+<div class="registration-container">
+  <div class="registration-wrapper">
+    <div class="registration-header">
+      <h1>Create Account</h1>
+      <p>Join V&F Basket and start shopping fresh products</p>
+    </div>
+
+    <form [formGroup]="registrationForm" (ngSubmit)="register()" class="registration-form">
+      <!-- First Name Field -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>First Name</mat-label>
+        <input matInput
+          type="text"
+          formControlName="firstName"
+          placeholder="John">
+        <mat-icon matPrefix>person</mat-icon>
+        <mat-error *ngIf="registrationForm.get('firstName')?.hasError('required')">
+          First name is required
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Last Name Field -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Last Name</mat-label>
+        <input matInput
+          type="text"
+          formControlName="lastName"
+          placeholder="Doe">
+        <mat-icon matPrefix>person</mat-icon>
+        <mat-error *ngIf="registrationForm.get('lastName')?.hasError('required')">
+          Last name is required
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Email Field -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email Address</mat-label>
+        <input matInput
+          type="email"
+          formControlName="email"
+          placeholder="you@example.com">
+        <mat-icon matPrefix>email</mat-icon>
+        <mat-error *ngIf="registrationForm.get('email')?.hasError('required')">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="registrationForm.get('email')?.hasError('email')">
+          Please enter a valid email
+        </mat-error>
+        <mat-error *ngIf="registrationForm.get('email')?.hasError('userExists')">
+          This email is already registered
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Phone Number Field -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Phone Number</mat-label>
+        <input matInput
+          type="tel"
+          formControlName="phoneNumber"
+          placeholder="9876543210">
+        <mat-icon matPrefix>phone</mat-icon>
+        <mat-error *ngIf="registrationForm.get('phoneNumber')?.hasError('required')">
+          Phone number is required
+        </mat-error>
+        <mat-error *ngIf="registrationForm.get('phoneNumber')?.hasError('pattern')">
+          Must be a valid 10-digit number
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Password Field -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput
+          type="password"
+          formControlName="password"
+          placeholder="Enter a strong password">
+        <mat-icon matPrefix>lock</mat-icon>
+        <mat-error *ngIf="registrationForm.get('password')?.hasError('required')">
+          Password is required
+        </mat-error>
+        <mat-error *ngIf="registrationForm.get('password')?.hasError('pattern')">
+          Must include uppercase, lowercase, number & special character
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Password Requirements -->
+      <div class="password-hint">
+        <mat-icon>info</mat-icon>
+        <span>8-16 characters with uppercase, lowercase, number & special character</span>
+      </div>
+
+      <!-- Confirm Password Field -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput
+          type="password"
+          formControlName="confirmPassword"
+          placeholder="Re-enter your password">
+        <mat-icon matPrefix>lock</mat-icon>
+        <mat-error *ngIf="registrationForm.get('confirmPassword')?.hasError('required')">
+          Please confirm your password
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Register Button -->
+      <button mat-raised-button
+        class="register-btn"
+        type="submit"
+        [disabled]="registrationForm.invalid">
+        <mat-icon>person_add</mat-icon>
+        Create Account
+      </button>
+
+      <mat-divider class="my-4"></mat-divider>
+
+      <!-- Login Link -->
+      <div class="footer-text">
+        <p>Already have an account? <a routerLink="/login">Sign In</a></p>
+      </div>
+    </form>
+  </div>
+</div>

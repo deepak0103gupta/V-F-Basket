@@ -1,0 +1,52 @@
+<div class="add-product-container">
+  <h2 class="title">{{ isEditMode ? 'Update Product' : 'Add Product' }}</h2>
+
+  <form (ngSubmit)="saveProduct()" [formGroup]="productForm" class="product-form">
+    <div class="form-group">
+      <label>Product Name</label>
+      <input type="text" formControlName="productName" placeholder="Enter product name" />
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <textarea
+        rows="3"
+        formControlName="productDescription"
+        placeholder="Enter description"
+      ></textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Price (₹)</label>
+        <input type="number" formControlName="productPrice" />
+      </div>
+
+      <div class="form-group">
+        <label>Stock Quantity</label>
+        <input type="number" formControlName="stockQuantity" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Product Image</label>
+      <input type="file" accept="image/png, image/jpeg" (change)="onFileSelected($event)" />
+    </div>
+
+    <div class="form-group">
+      <label>Category</label>
+      <select formControlName="categoryId">
+        <option [ngValue]="null">Select Category</option>
+
+        @for (items of categories(); track items.categoryId) {
+          <option [ngValue]="items.categoryId">
+            {{ items.categoryName }}
+          </option>
+        }
+      </select>
+    </div>
+    <button type="submit" class="submit-btn">
+      {{ isEditMode ? 'Update Product' : 'Add Product' }}
+    </button>
+  </form>
+</div>

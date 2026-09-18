@@ -1,0 +1,65 @@
+<div class="login-container">
+  <div class="login-wrapper">
+    <div class="login-header">
+      <h1>Welcome Back!</h1>
+      <p>Sign in to your V&F Basket account</p>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-form">
+      <!-- Email Field -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email Address</mat-label>
+        <input matInput type="email" formControlName="email" placeholder="you@example.com" />
+        <mat-icon matPrefix>email</mat-icon>
+        <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+          Please enter a valid email
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Password Field -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          formControlName="password"
+          placeholder="Enter your password"
+        />
+        <mat-icon matPrefix>lock</mat-icon>
+        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+          Password is required
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('password')?.hasError('pattern')">
+          Password must contain uppercase, lowercase, number & special character
+        </mat-error>
+      </mat-form-field>
+
+      <div *ngIf="errorMsg" class="error-message">
+        <mat-icon>error</mat-icon>
+        <span>{{ errorMsg }}</span>
+      </div>
+
+      <!-- Login Button -->
+      <button
+        mat-raised-button
+        class="login-btn"
+        type="submit"
+        [disabled]="loginForm.invalid"
+      >
+        <mat-icon>login</mat-icon>
+        Sign In
+      </button>
+
+      <mat-divider class="my-4"></mat-divider>
+
+      <!-- Forgot Password & Signup -->
+      <div class="footer-links">
+        <a href="#" class="link forgot-link">Forgot Password?</a>
+        <a routerLink="/registration" class="link signup-link">Create Account</a>
+      </div>
+    </form>
+  </div>
+</div>

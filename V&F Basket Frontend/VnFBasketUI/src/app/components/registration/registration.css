@@ -1,0 +1,210 @@
+.registration-container {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 40px 20px;
+  min-height: calc(100vh - 200px);
+}
+
+.registration-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.registration-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.registration-header h1 {
+  font-size: 2.5rem;
+  color: #84c225;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.registration-header p {
+  font-size: 1.05rem;
+  color: #333;
+  margin: 0;
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* Material Form Field Styling */
+::ng-deep .mat-mdc-form-field-appearance-outline .mdc-text-field--focused .mdc-notched-outline .mdc-notched-outline__leading,
+::ng-deep .mat-mdc-form-field-appearance-outline .mdc-text-field--focused .mdc-notched-outline .mdc-notched-outline__notch,
+::ng-deep .mat-mdc-form-field-appearance-outline .mdc-text-field--focused .mdc-notched-outline .mdc-notched-outline__trailing {
+  border-color: #84c225 !important;
+}
+
+::ng-deep .mat-mdc-form-field-appearance-outline.mat-focused .mdc-text-field--focused .mat-mdc-floating-label {
+  color: #84c225 !important;
+}
+
+::ng-deep .mat-mdc-text-field-wrapper .mdc-text-field--outlined .mdc-text-field__input {
+  color: #333;
+}
+
+::ng-deep .mat-mdc-form-field-appearance-outline .mdc-text-field--outlined label {
+  color: #84c225;
+}
+
+/* Icons in form fields */
+::ng-deep .mat-mdc-form-field .mat-mdc-prefix {
+  color: #84c225 !important;
+}
+
+.password-hint {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  background-color: #f0fdf4;
+  border-left: 4px solid #84c225;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #333;
+  margin: -8px 0 12px 0;
+}
+
+.password-hint mat-icon {
+  color: #84c225 !important;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.register-btn {
+  background-color: #84c225 !important;
+  color: black !important;
+  padding: 12px 24px !important;
+  font-size: 1rem !important;
+  height: auto !important;
+  font-weight: 600 !important;
+  margin-top: 12px;
+  transition: all 0.3s ease !important;
+  border-radius: 4px !important;
+}
+
+.register-btn:hover:not(:disabled) {
+  background-color: #6fa818 !important;
+  box-shadow: 0 4px 12px rgba(132, 194, 37, 0.3);
+  transform: translateY(-2px);
+}
+
+.register-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.my-4 {
+  margin: 16px 0 !important;
+}
+
+.footer-text {
+  text-align: center;
+  color: #333;
+  font-size: 0.95rem;
+  margin-top: 20px;
+}
+
+.footer-text p {
+  margin: 0;
+}
+
+.footer-text a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.footer-text a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+.footer-text a:hover {
+  color: #059669;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .left-section {
+    flex: 0 0 40%;
+    padding: clamp(1.5rem, 5vw, 40px) clamp(1rem, 4vw, 30px);
+  }
+
+  .right-section {
+    flex: 0 0 60%;
+    padding: clamp(1rem, 2vw, 30px);
+  }
+
+  .benefits-title {
+    font-size: clamp(1.8rem, 4vw, 2.3rem);
+  }
+
+  .benefits-list {
+    gap: clamp(1.5rem, 3vw, 30px);
+  }
+}
+
+@media (max-width: 768px) {
+  .registration-container {
+    flex-direction: column;
+  }
+
+  .left-section {
+    flex: 0 0 auto;
+    height: auto;
+    min-height: auto;
+    padding: clamp(1.5rem, 4vw, 30px) clamp(1rem, 3vw, 20px);
+  }
+
+  .right-section {
+    flex: 1;
+    padding: clamp(1rem, 3vw, 30px);
+    min-height: 0;
+  }
+
+  .registration-card {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .benefits-title {
+    font-size: clamp(1.5rem, 3vw, 1.8rem);
+  }
+
+  .benefits-tagline {
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
+  }
+
+  .benefits-list {
+    display: none;
+  }
+
+  .registration-form {
+    gap: clamp(0.75rem, 2vw, 16px);
+  }
+
+  ::ng-deep .mat-card-content {
+    padding: clamp(1.5rem, 3vw, 24px);
+  }
+
+  ::ng-deep .mat-form-field {
+    width: 100%;
+  }
+}
